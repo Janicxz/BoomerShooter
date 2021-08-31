@@ -11,7 +11,7 @@ public class BloodPoolScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        beginTransform = new Vector3(0.01f, 0.5f, 0.5f);
+        beginTransform = new Vector3(0.01f, 0.1f, 0.1f);
         endTransform = new Vector3(0.01f, Random.Range(0.8f,2f), Random.Range(0.8f, 2f));
 
     }
