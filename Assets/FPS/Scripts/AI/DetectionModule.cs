@@ -28,6 +28,10 @@ namespace Unity.FPS.AI
         [Tooltip("Time before an enemy abandons a known target that it can't see anymore")]
         public float KnownTargetTimeout = 4f;
 
+        [Tooltip("The time it takes for the enemy to react when detecting the player")]
+        public float ReactionTime = 0.5f;
+        float reactionTimePassed;
+
         [Tooltip("Optional animator for OnShoot animations")]
         public Animator Animator;
 
@@ -96,6 +100,12 @@ namespace Unity.FPS.AI
                             Actor hitActor = closestValidHit.collider.GetComponentInParent<Actor>();
                             if (hitActor == otherActor)
                             {
+                                reactionTimePassed += Time.deltaTime;
+                                //print("Reaction time: " + reactionTimePassed);
+                                if (reactionTimePassed < ReactionTime)
+                                    return;
+                                reactionTimePassed = 0f;
+
                                 IsSeeingTarget = true;
                                 closestSqrDistance = sqrDistance;
 
