@@ -491,7 +491,7 @@ Transform:
   m_GameObject: {fileID: 5783012135098597188}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 1, z: 1}
+  m_LocalScale: {x: 0.01, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 2015434656898269656}
   m_RootOrder: 7
@@ -621,6 +621,7 @@ MonoBehaviour:
   DetectionTooClose: 10
   AttackRange: 10
   KnownTargetTimeout: 12
+  ReactionTime: 0.5
   Animator: {fileID: 0}
 --- !u!1 &6421371450313891992
 GameObject:

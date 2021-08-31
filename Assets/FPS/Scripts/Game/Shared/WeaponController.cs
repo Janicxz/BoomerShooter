@@ -468,6 +468,14 @@ namespace Unity.FPS.Game
 
                 Destroy(muzzleFlashInstance, 2f);
             }
+            GameObject lightGameObject = new GameObject("MuzzleFlash light");
+            Light muzzleFlashLight = lightGameObject.AddComponent<Light>();
+            muzzleFlashLight.color = new Color(209, 106, 15);
+            muzzleFlashLight.type = LightType.Point;
+            muzzleFlashLight.intensity = 0.1f;
+            lightGameObject.transform.position = WeaponMuzzle.transform.position;
+            Destroy(lightGameObject, 0.1f);
+
 
             if (HasPhysicalBullets)
             {
