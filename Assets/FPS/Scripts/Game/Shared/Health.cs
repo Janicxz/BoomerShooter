@@ -13,6 +13,7 @@ namespace Unity.FPS.Game
         public UnityAction<float, GameObject> OnDamaged;
         public UnityAction<float> OnHealed;
         public UnityAction OnDie;
+        public UnityAction<float> OnDamagedCorpse;
 
         public float CurrentHealth { get; set; }
         public bool Invincible { get; set; }
@@ -49,6 +50,8 @@ namespace Unity.FPS.Game
 
             float healthBefore = CurrentHealth;
             CurrentHealth -= damage;
+            if (CurrentHealth < 0)
+                OnDamagedCorpse?.Invoke(damage);
             CurrentHealth = Mathf.Clamp(CurrentHealth, 0f, MaxHealth);
 
             // call OnDamage action

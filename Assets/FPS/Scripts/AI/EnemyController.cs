@@ -425,6 +425,8 @@ namespace Unity.FPS.AI
                 StartCoroutine(delayBloodPool());
                 // Disable AI
                 GetComponent<EnemyMobile>().enabled = false;
+                transform.Find("HitBox_Gib").gameObject.SetActive(true);
+                //Physics.IgnoreCollision(transform.Find("HitBox_Gib").gameObject.GetComponent<Collider>(), m_ActorsManager.Player.GetComponent<CharacterController>());
                 this.enabled = false;
             }
             else
